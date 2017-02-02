@@ -15,29 +15,16 @@ import Font from './Font';
 
 export default class App extends Component {
 
-  constructor() {
-    super()
-  }
-
-  linkToFontPage = () => {
-    Linking.canOpenURL('https://github.com/dabit3/react-native-fonts').then(supported => {
-        if (supported) {
-          Linking.openURL('https://github.com/dabit3/react-native-fonts');
-        } else {
-          AlertIOS.alert('Error opening: ' + this.props.url);
-        }
-      });
-  };
-
-  linkToGitHub = () => {
-    Linking.canOpenURL('https://github.com/dixonscottr').then(supported => {
-      if (supported) {
-        Linking.openURL('https://github.com/dixonscottr');
+  openLink = (link) => {
+    console.log(link);
+    Linking.canOpenURL(link).then(supported => {
+      if(supported) {
+        Linking.openURL(link);
       } else {
-        AlertIOS.alert('Error opening: ' + this.props.url);
+        AlertIOS.alert(`Error opening: ${link}`);
       }
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -55,10 +42,9 @@ export default class App extends Component {
             </ScrollView>
           </View>
         </View>
-
         <View style={styles.footer}>
-          <Text style={styles.footerText}>Coded by <Text style={styles.link} onPress={this.linkToGitHub}>Scott</Text> | Inspired by
-            <Text style={styles.link} onPress={this.linkToFontPage}> this project</Text>
+          <Text style={styles.footerText}>Coded by <Text style={styles.link} onPress={this.openLink.bind(null, 'https://github.com/dixonscottr')}>Scott</Text> | Inspired by
+            <Text style={styles.link} onPress={this.openLink.bind(null, 'https://github.com/dabit3/react-native-fonts')}> this project</Text>
           </Text>
         </View>
 
