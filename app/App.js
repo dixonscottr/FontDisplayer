@@ -2,23 +2,52 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View
+  View,
+  Linking,
+  AlertIOS,
+  TouchableHighlight
 } from 'react-native';
 
 export default class App extends Component {
+
+    linkToFontPage = () => {
+      Linking.canOpenURL('https://github.com/dabit3/react-native-fonts').then(supported => {
+          if (supported) {
+            Linking.openURL('https://github.com/dabit3/react-native-fonts');
+          } else {
+            AlertIOS.alert('Error opening: ' + this.props.url);
+          }
+        });
+    };
+
+    linkToGitHub = () => {
+      Linking.canOpenURL('https://github.com/dixonscottr').then(supported => {
+        if (supported) {
+          Linking.openURL('https://github.com/dixonscottr');
+        } else {
+          AlertIOS.alert('Error opening: ' + this.props.url);
+        }
+      });
+    };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <View style={styles.main}>
+          <Text style={styles.welcome}>
+            FontDisplayer
+          </Text>
+          <Text style={styles.instructions}>
+            instructions go here
+          </Text>
+        </View>
+
+          <View style={styles.footer}>
+            <Text style={styles.footerText}>Coded by <Text style={styles.link} onPress={this.linkToGitHub}>Scott</Text> | Inspired by
+              <Text style={styles.link} onPress={this.linkToFontPage}> this project</Text>
+            </Text>
+          </View>
+
       </View>
     );
   }
@@ -27,18 +56,27 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    marginTop: 40,
+    color: 'black'
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    color: '#333333'
   },
+  main: {
+    flex: 0.95
+  },
+  footer: {
+    flex: 0.05,
+    alignItems: 'center'
+  },
+  footerText: {
+  }
 });
