@@ -8,7 +8,10 @@ import {
   ScrollView,
   TouchableHighlight
 } from 'react-native';
+
 import fonts from '../fonts';
+
+import Font from './Font';
 
 export default class App extends Component {
 
@@ -49,7 +52,7 @@ export default class App extends Component {
           <View style={styles.fontHolder}>
           <ScrollView>
             {fonts.map((font, i) => {
-                return <Text key={i}>{font}</Text>
+                return <Font key={i} font={font} />
               })
             }
           </ScrollView>
