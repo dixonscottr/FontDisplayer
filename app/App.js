@@ -41,22 +41,19 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.page}>
         <View style={styles.main}>
           <Text style={styles.welcome}>
-            FontDisplayer
-          </Text>
-          <Text style={styles.instructions}>
-            instructions go here
+            React Native fonts available on iOS
           </Text>
           <View style={styles.fontHolder}>
-          <ScrollView>
-            {fonts.map((font, i) => {
-                return <Font key={i} font={font} />
-              })
-            }
-          </ScrollView>
-        </View>
+            <ScrollView>
+              {fonts.map((font, i) => {
+                  return <Font key={i} font={font} />
+                })
+              }
+            </ScrollView>
+          </View>
         </View>
 
         <View style={styles.footer}>
@@ -71,33 +68,42 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  page: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: '#880D1E'
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
     marginTop: 40,
-    color: 'black'
+    color: 'white'
   },
   instructions: {
     textAlign: 'center',
     color: '#333333'
   },
   main: {
-    flex: 0.95,
-    overflow: 'hidden'
+    flex: 0.95
   },
   footer: {
     flex: 0.05,
     alignItems: 'center'
   },
   footerText: {
+    color: 'white',
+    margin: 5
   },
   fontHolder: {
-    marginTop: 20
+    margin: 10,
+    marginTop: 20,
+    backgroundColor: 'white',
+    padding: 5,
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 9,
+    overflow: 'hidden',
+    flex: 1
   }
 });
