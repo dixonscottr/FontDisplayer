@@ -31,7 +31,7 @@ export default class App extends Component {
       <View style={styles.page}>
         <View style={styles.main}>
           <Text style={styles.welcome}>
-            React Native fonts available on iOS
+            React Native fonts on iOS
           </Text>
           <View style={styles.fontHolder}>
             <ScrollView>
@@ -56,15 +56,16 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'stretch',
     backgroundColor: '#880D1E'
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 22,
     textAlign: 'center',
     margin: 10,
-    marginTop: 40,
-    color: 'white'
+    marginTop: 30,
+    color: 'white',
+    fontFamily: 'System'
   },
   instructions: {
     textAlign: 'center',
@@ -75,17 +76,17 @@ const styles = StyleSheet.create({
   },
   footer: {
     flex: 0.05,
-    alignItems: 'center'
+    alignItems: 'center',
+    margin: 5
   },
   footerText: {
     color: 'white',
-    margin: 5
+    fontFamily: 'System'
   },
   fontHolder: {
     margin: 10,
-    marginTop: 20,
     backgroundColor: 'white',
-    padding: 5,
+    padding: 10,
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 9,
