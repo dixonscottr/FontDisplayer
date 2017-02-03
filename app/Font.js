@@ -7,7 +7,8 @@ export default class Font extends Component {
     const font = this.props.font;
     const style = {
       fontFamily: font,
-      fontSize: 19
+      fontSize: 19,
+      textAlign: 'center'
     };
     let secondLine;
     if(font === "Bodoni Ornaments" || font === "BodoniOrnamentsITCTT") {
@@ -16,7 +17,7 @@ export default class Font extends Component {
     }
     return (
       <View>
-        <Text style={style}>{font}</Text>
+        <Text style={style} onLongPress={this.props.onLongPress}>{font}</Text>
         {secondLine}
       </View>
     )
