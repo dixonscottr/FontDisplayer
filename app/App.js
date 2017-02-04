@@ -47,6 +47,20 @@ export default class App extends Component {
   }
 
   render() {
+    let modalStyle;
+    if(this.state.font === 'Zapfino') {
+      modalStyle = {
+        textAlign: 'center',
+        fontFamily: this.state.font,
+        fontSize: 15
+      }
+    } else {
+      modalStyle = {
+        textAlign: 'center',
+        fontFamily: this.state.font,
+        fontSize: 30
+      }
+    }
     return (
       <View style={styles.page}>
         <View style={styles.main}>
@@ -71,13 +85,18 @@ export default class App extends Component {
         <Modal
           animationType={"fade"}
           transparent={true}
-          visible={this.state.modalVisible}
-        >
+          visible={this.state.modalVisible}>
           <View style={styles.modal}>
             <View style={styles.modalView}>
-              <Text style={{textAlign: 'center', fontFamily: this.state.font, fontSize: 30}}>The quick brown fox jumped over the lazy brown dog</Text>
+              <Text
+                style={modalStyle}>
+                the quick brown fox jumped over the lazy brown dog
+              </Text>
               <Text></Text>
-              <Text style={{textAlign: 'center', fontFamily: this.state.font, fontSize: 30}}>THE QUICK BROWN FOX JUMPED OVER THE LAZY BROWN DOG</Text>
+              <Text
+                style={modalStyle}>
+                THE QUICK BROWN FOX JUMPED OVER THE LAZY BROWN DOG
+              </Text>
               <Button onPress={() => {
                 this.setModalVisible(false)
               }}
