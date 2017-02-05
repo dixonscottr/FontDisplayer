@@ -88,6 +88,9 @@ export default class App extends Component {
           visible={this.state.modalVisible}>
           <View style={styles.modal}>
             <View style={styles.modalView}>
+              <Text style={styles.modalTitle}>
+                ({this.state.font})
+              </Text>
               <Text
                 style={modalStyle}>
                 the quick brown fox jumped over the lazy brown dog
@@ -100,7 +103,8 @@ export default class App extends Component {
               <Button onPress={() => {
                 this.setModalVisible(false)
               }}
-              title="👋"
+              title="✕"
+              color="black"
               >
             </Button>
             </View>
@@ -165,5 +169,8 @@ const styles = StyleSheet.create({
     padding: 10,
     borderColor: 'black',
     borderWidth: 1
+  },
+  modalTitle: {
+    textAlign: 'center'
   }
 });
